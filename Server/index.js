@@ -26,3 +26,18 @@ app.use("/client", clientRoutes);
 app.use("/general", generalRoutes);
 app.use("/management", managementoutes);
 app.use("/sales", salesRoutes);
+
+/*Mongoose*/
+const PORT = process.env.PORT || 9000
+mongoose.set('strictQuery',false);
+mongoose.connect(process.env.MONGO_URL,{
+    useNewUrlParser:true,
+    useUnifiedTopology:true
+}).then(()=>{
+    console.log("DB Connected");
+    app.listen(PORT,()=>{
+        console.log(`Server Start Listening on Port ${PORT}`);
+    })
+}).catch((err)=>{
+    console.log(err);
+});
