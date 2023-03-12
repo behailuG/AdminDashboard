@@ -1,5 +1,5 @@
+import { createTheme } from "@mui/material/styles";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import {createTheme} from "@mui/icons-material";
 import { useSelector } from "react-redux";
 import { themeSettings } from "theme";
 import { useMemo } from "react";
@@ -8,8 +8,8 @@ import Dashboard from "scenes/dashboard";
 import Layout from "scenes/layout";
 
 function App() {
-  const mode=useSelector((state)=>state.global.mode);
-  const theme=useMemo(()=>createTheme(themeSettings(mode)),[mode]); 
+  const mode = useSelector((state) => state.global.mode);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   return (
     <div className="app">
       <BrowserRouter>
@@ -23,7 +23,6 @@ function App() {
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
-      
     </div>
   );
 }

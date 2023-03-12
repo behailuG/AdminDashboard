@@ -50,17 +50,17 @@ function reverseTokens(tokensDark)
         for (let i=0; i<length;i++){
             reversedObj[keys[i]] = values[length-i-1];
         }
-        reverseTokens[key]=reversedObj;
+        reversedTokens[key]=reversedObj;
     });
-    return reverseTokens;
+    return reversedTokens;
 }
 export const tokensLight=reverseTokens(tokensDark);
-export const themeSettings= (mode)=>{
+export const themeSettings = (mode)=>{
     return {
         palette: {
             mode :mode,
             ...(mode === "dark"
-            ?{
+            ? {
                 primary: {
                     ...tokensDark.primary,
                     main:tokensDark.primary[400],
@@ -98,15 +98,14 @@ export const themeSettings= (mode)=>{
                     default: tokensDark.grey[0],
                     alt: tokensDark.grey[50],
                 },
-            }
-            ),
+            }),
         },
         typography: {
             fontFamily: ["Inter", "sans-serif"].join(","),
-            fontSize :12,
+            fontSize: 12,
             h1:{
                 fontFamily: ["Inter", "sans-serif"].join(","),
-                fontSize: 32,
+                fontSize: 34,
             },
             h2:{
                 fontFamily: ["Inter", "sans-serif"].join(","),
